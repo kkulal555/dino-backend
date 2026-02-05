@@ -1,0 +1,5 @@
+export const SystemAccounts = {
+  TREASURY: 'SYSTEM_TREASURY',
+  MARKETING: 'SYSTEM_MARKETING',
+  REVENUE: 'SYSTEM_REVENUE',
+};

@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: dino-backend
+    env: docker
+    plan: free
+    region: singapore
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: DB_HOST
+        fromService:
+          type: psql
+          name: wallet-db
+          property: host
+      - key: DB_PORT
+        value: 5432
+      - key: DB_USERNAME
+        fromService:
+          type: psql
+          name: wallet-db
+          property: user
+      - key: DB_PASSWORD
+        fromService:
+          type: psql
+          name: wallet-db
+          property: password
+      - key: DB_NAME
+        fromService:
+          type: psql
+          name: wallet-db
+          property: database
+
+databases:
+  - name: wallet-db
+    databaseName: wallet_db
+    user: wallet_user
+    plan: free
+    region: singapore
